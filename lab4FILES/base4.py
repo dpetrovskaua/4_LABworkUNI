@@ -10,10 +10,7 @@ class Letter:
 class Word:
     def __init__(self, word_text: str):
         self.letters = [Letter(c) for c in word_text]
-
-    @property
-    def content(self) -> str:
-        return "".join(str(l) for l in self.letters)
+        self.content = word_text
 
     def __str__(self) -> str:
         return self.content
@@ -60,6 +57,5 @@ class Text:
     def get_sentences(self) -> list:
         return self._sentences
 
-    @staticmethod
-    def clean_string(raw_string: str) -> str:
+    def clean_string(self, raw_string: str) -> str:
         return re.sub(r'[ \t]+', ' ', raw_string).strip()
