@@ -21,6 +21,8 @@ def test_equals_and_tostring():
     assert s1 == s2
     assert s1 != s3
 
+def test_eq():
+    s1 = Sentence("Some text", "Stone", "Structural", 1.5, 6.0, False)
     #{self.name} -> Category: {self.category}; Hardness: {str(self.hardness)}; BlastResist: {self.blast_resistance}
     expected_str = "Stone -> Category: Structural; Hardness: 1.5; BlastResist: 6.0"
     assert str(s1) == expected_str
@@ -40,8 +42,8 @@ def test_sorting_logic():
     assert sorted_sentences[1].name == "C"
     assert sorted_sentences[2].name == "A"
 
-
 def test_clean_string():
     dirty_text = "   Багато \t\t зайвих    пробілів   "
     expected_text = "Багато зайвих пробілів"
-    assert Text.clean_string(dirty_text) == expected_text
+    text_obj = Text([])
+    assert text_obj.clean_string(dirty_text) == expected_text
