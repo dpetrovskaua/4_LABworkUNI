@@ -10,3 +10,4 @@
 https://dpetrovskaua.github.io/4_LABworkUNI/
 
 # Відеозахист програми
+https://github.com/user-attachments/assets/1c039e60-fa64-4022-a9c5-58814c735afd
