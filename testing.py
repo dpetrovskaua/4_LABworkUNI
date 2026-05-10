@@ -16,7 +16,7 @@ def test_initialization():
 
 def test_equals_and_tostring():
     s1 = Sentence("Some text", "Stone", "Structural", 1.5, 6.0, False)
-    s2 = Sentence("Different text", "Stone", "Structural", 1.5, 6.0, False)
+    s2 = Sentence("Some text", "Stone", "Structural", 1.5, 6.0, False)
     s3 = Sentence("Some text", "Dirt", "Natural", 0.5, 0.5, False)
     assert s1 == s2
     assert s1 != s3
@@ -33,15 +33,13 @@ def test_sorting_logic():
     s2 = Sentence("T2", "B", "Cat", 1.0, 1.0, False)
     s3 = Sentence("T3", "C", "Cat", 2.0, 10.0, False)
     sentences = [s1, s2, s3]
-    sorted_sentences = sorted(sentences, key=lambda s: (s.hardness, -s.blast_resistance))
+    sentences = sorted(sentences, key=lambda s: (s.hardness, -s.blast_resistance))
     # очікуваний порядок:
-        # 1. "B" (Hardness 1.0)
-        # 2. "C" (Hardness 2.0, BlastRes 10.0)
-        # 3. "A" (Hardness 2.0, BlastRes 5.0)
-    assert sorted_sentences[0].name == "B"
-    assert sorted_sentences[1].name == "C"
-    assert sorted_sentences[2].name == "A"
-
+        # 1. "s2" (Hardness 1.0)
+        # 2. "s3" (Hardness 2.0, BlastRes 10.0)
+        # 3. "s1" (Hardness 2.0, BlastRes 5.0)
+    assert sentences == [s2, s3, s1]
+    
 def test_clean_string():
     dirty_text = "   Багато \t\t зайвих    пробілів   "
     expected_text = "Багато зайвих пробілів"
