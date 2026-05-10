@@ -32,6 +32,7 @@ class Sentence:
             else:
                 self.elements.append(Punctuation(token))
 
+        self.sentence_text = sentence_text
         self.name = name
         self.category = category
         self.hardness = hardness
@@ -44,7 +45,8 @@ class Sentence:
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, Sentence):
             return False
-        return (self.name == other.name and
+        return (self.sentence_text == other.sentence_text and
+                self.name == other.name and
                 self.category == other.category and
                 self.hardness == other.hardness and
                 self.blast_resistance == other.blast_resistance and
